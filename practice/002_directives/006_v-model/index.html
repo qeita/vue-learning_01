@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Directives(6)</title>
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+    <div id="app">
+
+      <!--
+        `v-model`は、formの`input`, `textarea`, `select`要素で双方向データバインディングを行うのに使用
+        入力要素の変更を受け取ってdata(状態)を更新
+      -->
+
+      <section>
+        <input type="text" v-model="input" placeholder="Please edit">
+        <p v-if="input !== ''">Message is: {{ input }}</p>    
+      </section>
+   
+      <section>
+        <textarea v-model="textarea" placeholder="Please edit"></textarea>
+        <p class="preline">{{ textarea }}</p>    
+      </section>
+
+      <section>
+        <input type="checkbox" value="Jack" v-model="checkbox">
+        <input type="checkbox" value="Queen" v-model="checkbox">
+        <input type="checkbox" value="King" v-model="checkbox">
+
+        <p>Checked: {{ checkbox }}</p>    
+      </section>
+
+    </div>
+
+    <script src="../../assets/js/libs/vue.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

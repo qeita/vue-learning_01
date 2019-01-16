@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Appendix(2)</title>
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+    <div id="app">
+      <!--
+        二重中括弧が初期表示で一瞬見えてしまうことがあります(Vue.jsのdataを描画するまでの間)
+        描画されるまで表示させない場合、`v-cloak`ディレクティブを該当要素に付与し、
+        以下スタイルを設定することで描画まで非表示にすることができます
+        [v-cloak]{
+          display: none;
+        }
+      -->
+      <p v-cloak>{{ message }}</p>
+
+    </div>
+
+    <script src="../../assets/js/libs/vue.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

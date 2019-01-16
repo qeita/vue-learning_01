@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Directives(2)</title>
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- `style`や`class`、`data-xxx`等の属性値を動的に更新する際に、`v-bind`を使用します -->
+
+      <section>
+        <p v-bind:style="styles">{{ message }}</p>
+        <!-- 以下のように`v-bind:`を`:`に略すことが可能 -->
+        <!-- <p :style="styles">{{ message }}</p> -->
+    
+        <button
+          v-on:click="toggleStyle"
+        >Toggle 1</button>    
+      </section>
+
+      <section>
+        <p v-bind:class="className">{{ message }}</p>
+        <!-- 
+          `v-bind:`を付与した属性値は、二重中括弧({{ ... }})のようにJSを使った演算が可能で、
+          以下のように式を入れて、割り振るクラスを切り替える方法もあります
+        -->
+        <!-- <p v-bind:class="className.indexOf('cls') >= 0? 'cls_01' : ''">{{ message }}</p> -->
+      
+        <button
+          v-on:click="toggleClass"
+        >Toggle 2</button>    
+      </section>
+
+
+      <section>
+        <!-- ボタンをクリックして入力可/不可に切替 -->
+        <input type="text" v-bind:disabled="isDisabled" value="Toggle">
+      
+        <button
+          v-on:click="toggleInput"
+        >Toggle 3</button>    
+      </section>
+  
+    </div>
+
+    <script src="../../assets/js/libs/vue.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js(4)</title>
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ message }}</p>
+
+      <!-- 文字を反転するのに以下のようになるが、記述が冗長 -->
+      <!-- <p>{{ message.split('').reverse().join('') }}</p> -->
+
+      <!-- 算出プロパティに上記処理を移し、それを呼び出すようにする -->
+      <p>{{ reversedMessage }}</p>
+    </div>
+
+    <script src="../../assets/js/libs/vue.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Directives(3)</title>
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+    <div id="app">
+
+      <button
+        @click="openModal"
+      >Open</button>
+
+      <!--
+        `v-if`でhtml上の要素を表示非表示
+        inputタグに入力した値が再表示した際初期値に戻っていることから、[描画し直す]処理になっています
+        頻繁に切り替えを行わない or 内部でセットした情報を保持しないケースで使用
+      -->
+      <div class="modal" v-if="isShown">
+        <div class="modal_bg" @click="closeModal"></div>
+
+        <div class="modal_content">
+          <p><input type="text" value="" placeholder="Please Enter your address"></p>
+        </div>
+      </div>
+
+      <!-- JSのif文で使用する`else if(...)`のような書き方も可能(`v-else-if`) -->
+
+      <!-- `v-else`で先の`v-if`で`false`だった場合の出力も可能 -->
+      <!-- <div class="alter" v-else>
+        <p>モーダル閉じています</p>
+      </div> -->
+
+    </div>
+
+    <script src="../../assets/js/libs/vue.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

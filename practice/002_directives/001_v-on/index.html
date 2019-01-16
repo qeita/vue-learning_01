@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Directives(1)</title>
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+  </head>
+  <body>
+    <div id="app">
+      <p>{{ message }}</p>
+
+      <button
+        v-on:click="reverseMessage"
+      >Reversed</button>
+
+      <!-- 以下のように`v-on:`を`@`に略すことが可能 -->
+      <!-- <button
+        @click="reverseMessage"
+      >Reversed</button> -->
+
+      <!-- クリック以外にもマウスホバーやタップイベント等JSで使用するイベントも使えます -->
+      <!-- <button
+        @mouseenter="reverseMessage"
+      >Reversed</button> -->
+
+
+      <!--
+        以下のようにメソッドに引数を渡すことも可能
+        引数 $event はイベントオブジェクト(省略可)
+      -->
+      <!-- <button
+        v-on:click="alertBox(message, $event)"
+      >Alert</button> -->
+
+    </div>
+
+    <script src="../../assets/js/libs/vue.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

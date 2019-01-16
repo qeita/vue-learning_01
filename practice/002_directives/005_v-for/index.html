@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Directives(5)</title>
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+    <div id="app">
+
+      <!--
+        繰り返し出力する要素には`v-for`を使います(ここでは`li`タグの出力にしていますが、`div`や`p`タグ等でもOK)
+        `v-for`で扱う対象は、[配列]あるいは[オブジェクト]と複数データで管理する形式
+        単純なテキストの出力であれば必要ないが、子コンポーネントを繰り返し出力する場合、`v-bind:key="xxx"(:key="xxx")`も付与が必要
+        *keyの値"xxx"の部分はプリミティブ型であること、またkeyの値は一意の値であり重複しないようにすること
+      -->
+
+      <section>
+        <p>[配列:1]</p>
+
+        <!-- 通常の配列で使用している`push`や`pop`を使ってリストを追加・削除することも可能 -->
+        <!-- <button @click="add">Add</button>
+        <button @click="remove">Remove</button> -->
+
+        <!-- 配列の既存要素を更新する際には注意!(app.jsのupdateメソッド参照) -->
+        <!-- <button @click="update">Update</button> -->
+
+        <ul>
+          <!--
+            配列のインデックスなしで繰り返し出力する場合、`v-for="[個別の変数] in [配列]"`と記述
+            もしくは、`v-for="[個別の変数] of [配列]"`と`of`にしても動作
+          -->
+          <li v-for="item in items1">{{ item }}</li>
+        </ul>
+
+      </section>
+
+      <section>
+        <p>[配列:2]</p>
+        <ul>
+          <!-- 配列のインデックスありで繰り返し出力する場合、`v-for="([個別の変数], [インデックス]) in [配列]"`と記述 -->
+          <li v-for="(item, i) in items1" :key="i">{{ i }} : {{ item }}</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <p>[オブジェクト:1]</p>
+        <ul>
+          <!-- オブジェクトのキーなしで繰り返し出力する場合、`v-for="[個別の値] in [オブジェクト]"`と記述 -->
+          <li v-for="item in items2">{{ item }}</li>
+        </ul>
+      </section>
+
+      <section>
+        <p>[オブジェクト:2]</p>
+        <ul>
+          <!--
+            オブジェクトのキーありで繰り返し出力する場合、`v-for="([個別の値], [キー]) in [オブジェクト]"`と記述
+            またインデックスも、`v-for="([個別の値], [キー], [インデックス]) in [オブジェクト]"`と記述すると取得
+          -->
+          <li v-for="(item, key) in items2" :key="key">{{ key }} : {{ item }}</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <p>[範囲]</p>
+        <ul>
+          <!-- 数値を渡すことで 0~(数値) の範囲で表示することも可能 -->
+          <li v-for="n in 10" :key="n">{{ n }}</li>
+        </ul>
+
+        <!-- 偶数だけ表示したい場合、以下のように`v-for`とセットで`v-if`を組み合わせると可能 -->
+        <!-- <ul>
+          <li v-for="n in 10" :key="n" v-if="n % 2 === 0">{{ n }}</li>
+        </ul> -->
+
+      </section>      
+    </div>
+
+    <script src="../../assets/js/libs/vue.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

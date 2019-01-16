@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Directives(4)</title>
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
+  <body>
+    <div id="app">
+
+      <button
+        @click="openModal"
+      >Open</button>
+
+      <!--
+        `v-show`でcssを使って要素を表示非表示(インラインスタイルで`display: none;`をつけ外し)
+        `v-if`と違ってhtmlは存在した状態でcssで表示非表示を行なっているので、inputタグに入力した値が再表示した後も残っています
+        頻繁に切り替えを行う or 内部でセットした情報を保持するケースで使用
+      -->
+      <div class="modal" v-show="isShown">
+        <div class="modal_bg" @click="closeModal"></div>
+
+        <div class="modal_content">
+          <p><input type="text" value="" placeholder="Please Enter your address"></p>
+        </div>
+      </div>
+
+      <!-- `v-if`と違って`v-else-if`/`v-else`は使えないため、`v-show`ディレクティブを複数個使って中の条件式によって切り替えます -->
+
+
+    </div>
+
+    <script src="../../assets/js/libs/vue.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Appendix(1)</title>
+    <link rel="stylesheet" href="../../assets/css/reset.css">
+  </head>
+  <body>
+    <div id="app">
+
+      <!-- 
+        文字列をhtml要素として認識させたい場合、挿入要素に対し`v-html="xxx"`を付与
+        任意のHTMLを動的に描画するため、XSS攻撃の可能性があります。極力使用は控えること
+      -->
+      <p v-html="text"></p>
+
+      <button
+        @click="toggle"
+      >Toggle</button>
+
+    </div>
+
+    <script src="../../assets/js/libs/vue.js"></script>
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>
