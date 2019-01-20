@@ -6,9 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vue.js Appendix(5)</title>
     <link rel="stylesheet" href="../../assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
   </head>
   <body>
     <div id="app">
+
+      <button
+        @click="openModal"
+      >Open</button>
+
+      <!--
+        htmlで`<transition name="(トランジション名)"></transition>`を囲み、
+        cssに`.(トランジション名)-enter`, `.(トランジション名)-enter-active`等で指定します。
+      -->
+      <transition name="fade">
+        <div class="modal" v-show="isShown">
+          <div class="modal_bg" @click="closeModal"></div>
+  
+          <div class="modal_content">
+            <p><input type="text" value="" placeholder="Please Enter your address"></p>
+          </div>
+        </div>
+      </transition>
+
     </div>
 
     <script src="../../assets/js/libs/vue.js"></script>

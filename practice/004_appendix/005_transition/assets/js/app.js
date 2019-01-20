@@ -1,6 +1,6 @@
 /**
  * Vue.js 補足(5)
- * - アニメーション(transition)
+ * - 要素の表示・削除時のアニメーション設定(transition)
  */
 
 let vm = new Vue({
@@ -8,6 +8,17 @@ let vm = new Vue({
 
   data(){
     return {
+      isShown: false
+    }
+  },
+
+  methods: {
+    openModal(){
+      this.isShown = true
+    },
+    closeModal(){
+      this.isShown = false
     }
   }
+
 })

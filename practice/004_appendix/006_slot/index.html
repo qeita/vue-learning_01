@@ -9,6 +9,23 @@
   </head>
   <body>
     <div id="app">
+      <!--
+        子コンポーネントでslotタグを使い、
+        親からタグ要素の中に入力したデータが差し込まれるようになります。
+        例えば、ラベルのバリエーションが多彩なボタンやラッパー用途のコンポーネントで活用ができます。
+      -->
+      <button-container>
+        これは最初のボタンです
+      </button-container>
+
+      <button-container>
+        これは2つ目のボタンです
+      </button-container>
+
+      <button-container>
+        <span>これは3つ目のボタンです</span>
+      </button-container>
+        
     </div>
 
     <script src="../../assets/js/libs/vue.js"></script>
